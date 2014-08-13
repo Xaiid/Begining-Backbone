@@ -1,24 +1,26 @@
-var Router = Backbone.Router.extend({
+App.Router = Backbone.Router.extend({
 
   routes: {
     "users/new": "newUser",
-    "users"    : "users"
+    ""         : "users"
   },
 
   initialize:function(){
   },
 
-  newUser: function(){
-    var user_view = new UserView({ el: $('#user-form')  });
-  },
+  // newUser: function(){
+  //   var user_view = new UserView({ el: $('#user-form')  });
+  // },
 
   users: function(){
-    var users_view = new UsersView({ el: $('#user-table')  });
+    var users_view = new App.UsersView({
+      el: $('#fn-users-table')
+    });
   }
 
 });
 
 $(function(){
-  var router = new Router();
+  App.router = new App.Router();
   Backbone.history.start({pushState: true});
 });

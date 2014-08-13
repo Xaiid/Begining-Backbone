@@ -1,0 +1,22 @@
+:javascript
+
+%h1 Listing users
+%table#user-table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th{colspan: "3"}
+  %tbody#fn-users-table
+
+%br/
+
+= link_to 'New User', new_user_path
+
+%script#template-users(type='text/html')
+  <% users.each(function(user) { %>
+  <tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  </tr>
+  <% }) %>

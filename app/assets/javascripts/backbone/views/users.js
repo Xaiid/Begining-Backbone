@@ -1,16 +1,12 @@
-var UsersView = Backbone.View.extend({
-  initialize: function(){
-    this.loadUsers();
+App.UsersView = Backbone.View.extend({
+  initialize: function() {
+    this.render();
   },
 
-  loadUsers: function(){
-    this.users = new Users();
-    this.users.fetch();
+  template: _.template($("#template-users").html()),
 
-    debugger
-    template = _.template(this.template, this.users.toJSON());
-    this.$el.html(template);
-  },
-
-  template: "<% _.each(this.users, function(user) { %><tr><td><%= user.name %></td><td><%= user.email %></td></tr><%= name %><% }); %>"
+  render: function() {
+    var usersRawHtml = this.template(App.users);
+    this.el.html(usersRawHtml);
+  }
 });
