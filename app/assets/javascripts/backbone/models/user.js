@@ -4,5 +4,13 @@ App.User = Backbone.Model.extend({
     email: ""
   },
 
-  url: "/users",
+  idAttribute: "id",
+
+  url: function() {
+    if (this.id) {
+      return "/users/" + this.id;
+    } else {
+      return "/users/";
+    }
+  }
 });
