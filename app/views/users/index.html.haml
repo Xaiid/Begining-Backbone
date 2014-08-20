@@ -1,5 +1,5 @@
 :javascript
-
+  App.users = new App.Users(#{@users.to_json});
 %h1 Listing users
 %table#user-table
   %thead
@@ -14,7 +14,7 @@
 = link_to 'New User', new_user_path
 
 %script#template-users(type='text/html')
-  <% users.each(function(user) { %>
+  <% _.each(users, function(user) { %>
   <tr>
   <td><%= user.name %></td>
   <td><%= user.email %></td>

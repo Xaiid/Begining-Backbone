@@ -5,7 +5,7 @@ var UserView = Backbone.View.extend({
   },
 
   createUser: function(){
-    var user = new User({
+    var user = new App.User({
       name:  $('#name').val(),
       email: $('#email').val()
     });

@@ -8,9 +8,9 @@ App.Router = Backbone.Router.extend({
   initialize:function(){
   },
 
-  // newUser: function(){
-  //   var user_view = new UserView({ el: $('#user-form')  });
-  // },
+  newUser: function(){
+    var user_view = new UserView({ el: $('#user-form')  });
+  },
 
   users: function(){
     var users_view = new App.UsersView({

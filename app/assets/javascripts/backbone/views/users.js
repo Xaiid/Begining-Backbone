@@ -3,10 +3,9 @@ App.UsersView = Backbone.View.extend({
     this.render();
   },
 
-  template: _.template($("#template-users").html()),
-
   render: function() {
-    var usersRawHtml = this.template(App.users);
-    this.el.html(usersRawHtml);
+    this.template = _.template($('#template-users').html());
+    var usersRawHtml = this.template({users: App.users.toJSON()});
+    $(this.el).html(usersRawHtml);
   }
 });
